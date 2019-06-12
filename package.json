@@ -10,8 +10,9 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "server": "nodemon index.js",
-    "start": "react-scripts start",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "start:react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
