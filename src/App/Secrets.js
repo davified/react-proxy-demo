@@ -16,8 +16,8 @@ class Secrets extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.getData}>Get data</button>
-        <h1>{this.state.data}</h1>
+        <button onClick={this.getData}>Find secret</button>
+        <h2>{this.state.data}</h2>
       </div>
     );
   }

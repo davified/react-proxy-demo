@@ -18,7 +18,7 @@ app.get("/api/thirdParty", (req, res) => {
   // 1. receive request
   // 2. append API keys and make real request to 3rd party API
   // 3. send response data to front end to be re-rendered
-  secret = process.env.MY_SECRET_IS === "safe" ? "lavender" : "durian";
+  secret = process.env.MY_SECRET_IS === "safe" ? "durian" : "lavender";
   res.json({ thirdPartyResponse: secret });
 });
 
