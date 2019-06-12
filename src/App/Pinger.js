@@ -15,7 +15,7 @@ class Pinger extends Component {
     const twentyMinutesInMS = 1200000;
     setInterval(() => {
       fetch("/api/keepSelfAwake").then();
-    }, 2000); //twentyMinutesInMS);
+    }, twentyMinutesInMS);
   };
 
   render() {
