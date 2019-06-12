@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
+    "heroku-postbuild": "npm run build",
     "start:react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
