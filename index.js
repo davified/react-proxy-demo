@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 
@@ -17,7 +18,8 @@ app.get("/api/cloudinary", (req, res) => {
   // 1. receive request
   // 2. append API keys and make real request to 3rd party API
   // 3. send response data to front end to be re-rendered
-  res.json({ cloudinaryResponse: "hello" });
+  secret = process.env.MY_SECRET_IS === "safe" ? "lavender" : "durian";
+  res.json({ cloudinaryResponse: secret });
 });
 
 // Order matters. Put all API endpoints above app.get("*")
