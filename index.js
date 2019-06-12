@@ -14,12 +14,12 @@ app.get("/api/getList", (req, res) => {
   console.log("Sent list of items");
 });
 
-app.get("/api/cloudinary", (req, res) => {
+app.get("/api/thirdParty", (req, res) => {
   // 1. receive request
   // 2. append API keys and make real request to 3rd party API
   // 3. send response data to front end to be re-rendered
   secret = process.env.MY_SECRET_IS === "safe" ? "lavender" : "durian";
-  res.json({ cloudinaryResponse: secret });
+  res.json({ thirdPartyResponse: secret });
 });
 
 app.get("/api/keepSelfAwake", (req, res) => {

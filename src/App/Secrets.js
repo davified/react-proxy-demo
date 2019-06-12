@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
-class ThirdParty extends Component {
+class Secrets extends Component {
   state = {
     data: "",
   };
 
   getData = () => {
-    fetch("/api/cloudinary")
+    fetch("/api/thirdParty")
       .then(res => res.json())
-      .then(({ cloudinaryResponse }) =>
-        this.setState({ data: cloudinaryResponse })
+      .then(({ thirdPartyResponse }) =>
+        this.setState({ data: thirdPartyResponse })
       );
   };
 
@@ -23,4 +23,4 @@ class ThirdParty extends Component {
   }
 }
 
-export default ThirdParty;
+export default Secrets;
