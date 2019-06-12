@@ -5,15 +5,17 @@ class Pinger extends Component {
   // the free dyno up-time on Heroku is approx. 17h/day.
   timeIsRight = () => {
     const today = new Date();
-    const time = today.getHours();
-    return time >= 7 && time < 22;
+    const hour = today.getHours();
+    console.log("-- hour is: ", hour);
+
+    return hour >= 7 && hour < 22;
   };
 
   pingMe = () => {
     const twentyMinutesInMS = 1200000;
     setInterval(() => {
       fetch("/api/keepSelfAwake").then();
-    }, twentyMinutesInMS);
+    }, 2000); //twentyMinutesInMS);
   };
 
   render() {
