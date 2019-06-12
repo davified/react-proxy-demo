@@ -4,11 +4,13 @@ import "./App.css";
 import Home from "./pages/Home";
 import List from "./pages/List";
 import ThirdParty from "./pages/ThirdParty";
+import Pinger from "../Pinger";
 
 class App extends Component {
   render() {
     const App = () => (
       <div>
+        <Pinger />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/list" component={List} />

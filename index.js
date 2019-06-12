@@ -22,15 +22,16 @@ app.get("/api/cloudinary", (req, res) => {
   res.json({ cloudinaryResponse: secret });
 });
 
+app.get("/api/keepSelfAwake", (req, res) => {
+  console.log("mornin'...");
+  res.sendStatus(200);
+});
+
 // Order matters. Put all API endpoints above app.get("*")
 // Handles any requests that don't match the ones above
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/build/index.html"));
 });
-
-// app.get("/keepSelfAwake", (req, res, next) => {
-//   setInterval(axios.get("/"), 36000);
-// });
 
 const port = process.env.PORT || 5000;
 app.listen(port);
