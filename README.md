@@ -9,6 +9,12 @@ Secrets (like 3rd party API keys) stored in environment variables in a React app
 
 **Solution**: Only use the secrets within the Node proxy.
 
+**How to test**:
+
+- Add a `.env` file in the project root.
+- Write the following line in this file: `MY_SECRET_IS='safe'`
+- Next time the 'Get data' button is pressed, the displayed text should be... less smelly :).
+
 #### Drawback
 
 Node (express) => more than just static content => cannot be deployed on e.g. Netlify.
@@ -18,7 +24,3 @@ Node (express) => more than just static content => cannot be deployed on e.g. Ne
 Since the (debatable :) ) best deployment solution is Heroku... and since Heroky apps fall asleep after 30 minutes of inactivity...
 
 **The Pinger** is a dummy React Component loaded the first time the app is rendered. It pings the node server once every 20 minutes, between 7AM and 10PM.
-
-### Important note
-
-For demonstration purposes, the `.env` file is also committed. In real projects this is a very very bad idea.
