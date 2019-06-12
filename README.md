@@ -13,7 +13,7 @@ Secrets (like 3rd party API keys) stored in environment variables in a React app
 
 - Add a `.env` file in the project root.
 - Write the following line in this file: `MY_SECRET_IS='safe'`
-- Next time the 'Get data' button is pressed, the displayed text should be... less smelly :).
+- Next time the 'Find secret' button is pressed, the displayed text should be... secret :).
 
 #### Drawback
 
