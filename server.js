@@ -22,14 +22,16 @@ app.get("/api/health", (req, res) => {
   res.json("pinged");
 });
 
-// Only ping between 7AM and 10PM (15h) because
+// Only ping between 8AM and 11PM (15h) because
 // the free dyno up-time on Heroku is approx. 17h/day.
 const hourIsWithinPingRange = () => {
   const today = new Date();
   const hour = today.getHours();
 
-  const STARTING_HOUR_IN_UTC = 7;
-  const ENDING_HOUR_IN_UTC = 22;
+  // Singapore is UTC + 8
+  const UTC_DIFFERENCE = 8;
+  const STARTING_HOUR_IN_UTC = 8 - UTC_DIFFERENCE;
+  const ENDING_HOUR_IN_UTC = 23 - UTC_DIFFERENCE;
 
   console.log(
     `[${STARTING_HOUR_IN_UTC} - ${ENDING_HOUR_IN_UTC}] incl ${hour}?`
@@ -42,7 +44,7 @@ app.get("/api/keepSelfAwake", (req, res) => {
   const healthEndpoint = `${req.protocol}://${req.hostname}:${port}/api/health`;
   console.log(`requesting for ${healthEndpoint}`);
 
-  const twentyMinutesInMS = 1200000;
+  const twentyMinutesInMS = 2000; //1200000;
   const timerID = setInterval(() => {
     if (!hourIsWithinPingRange()) {
       clearInterval(timerID);
