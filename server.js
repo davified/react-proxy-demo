@@ -42,7 +42,6 @@ const hourIsWithinPingRange = () => {
 
 app.get("/api/keepSelfAwake", (req, res) => {
   const healthEndpoint = `${req.protocol}://${req.hostname}:${port}/api/health`;
-  console.log(`requesting for ${healthEndpoint}`);
 
   const twentyMinutesInMS = 1200000;
   const timerID = setInterval(() => {
@@ -50,7 +49,12 @@ app.get("/api/keepSelfAwake", (req, res) => {
       clearInterval(timerID);
     }
 
-    axios.get(healthEndpoint);
+    axios
+      .get(healthEndpoint)
+      .then()
+      .catch(err => {
+        console.log("ping error: ", err);
+      });
   }, twentyMinutesInMS);
 
   res.json({
