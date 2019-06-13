@@ -43,7 +43,7 @@ const hourIsWithinPingRange = () => {
 app.get("/api/keepSelfAwake", (req, res) => {
   const healthEndpoint = `${req.protocol}://${req.hostname}:${port}/api/health`;
 
-  const twentyMinutesInMS = 1200000;
+  const twentyMinutesInMS = 5 * 60 * 1000;
   const timerID = setInterval(() => {
     if (!hourIsWithinPingRange()) {
       clearInterval(timerID);
